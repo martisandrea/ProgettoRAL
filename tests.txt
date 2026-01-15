@@ -1346,4 +1346,128 @@ nn.Linear(dim_hidden, n_actions),
 
 nuovo sistema di reward shaping con bonus dinamico (weight=0.25, bonus_full_house=1.0, bonus_straight_with_seven=1.0, full_bonus=2.0)
 
-MEDIA DEI TEST SU 500 MATCH: 43.24
+MEDIA DEI TEST SU 500 MATCH: 35.75
+
+###########################################################################################################################################
+
+BATCH_SIZE = 64            # Number of experiences sampled per learning step (32, 64, 128)
+LR = 5e-4                  # Learning rate for optimizer (1e-3, 1e-4)
+EPISODES = 300000          # Maximum number of episodes to train (~1 or 2 minute for 100 episodes)
+TARGET_SCORE = 70          # Early stop if average score reaches this value (punteggio che dovrebbe fare la navetta quando atterra)
+GAMMA = 0.99               # Discount factor for future rewards
+MEMORY_SIZE = 1000000      # Maximum capacity of replay memory (multiplo di mille)
+LEARN_STEP = 5             # Frequency (in steps) of learning updates (5, 10)
+TAU = 1e-3                 # Soft update rate for the target network (1e-3)
+SAVE_CHKPT = True          # Option to save trained model checkpoint
+
+# Exploration parameters
+MAX_STEPS = 30             # Maximum steps per episode
+EPS_START = 1.0            # Initial epsilon for exploration (100% exploration at start)
+EPS_END = 0.01             # Minimum epsilon (final exploration rate)
+EPS_DECAY = 0.99999        # Epsilon decay rate (controls exploration reduction)
+
+ARCHITETTURA RETE: dim_hidden=128
+nn.Linear(n_state_vars, dim_hidden),
+nn.ReLU(),
+nn.Linear(dim_hidden, dim_hidden),
+nn.ReLU(),
+nn.Linear(dim_hidden, dim_hidden),
+nn.ReLU(),
+nn.Linear(dim_hidden, n_actions),
+
+nuovo sistema di reward shaping con bonus dinamico (weight=0.25, bonus_full_house=1.0, bonus_straight_with_seven=1.0, full_bonus=2.0)
+
+MEDIA DEI TEST SU 500 MATCH: 44.46
+
+###########################################################################################################################################
+
+BATCH_SIZE = 64            # Number of experiences sampled per learning step (32, 64, 128)
+LR = 5e-4                  # Learning rate for optimizer (1e-3, 1e-4)
+EPISODES = 300000          # Maximum number of episodes to train (~1 or 2 minute for 100 episodes)
+TARGET_SCORE = 70          # Early stop if average score reaches this value (punteggio che dovrebbe fare la navetta quando atterra)
+GAMMA = 0.99               # Discount factor for future rewards
+MEMORY_SIZE = 1000000      # Maximum capacity of replay memory (multiplo di mille)
+LEARN_STEP = 5             # Frequency (in steps) of learning updates (5, 10)
+TAU = 1e-3                 # Soft update rate for the target network (1e-3)
+SAVE_CHKPT = True          # Option to save trained model checkpoint
+
+# Exploration parameters
+MAX_STEPS = 30             # Maximum steps per episode
+EPS_START = 1.0            # Initial epsilon for exploration (100% exploration at start)
+EPS_END = 0.01             # Minimum epsilon (final exploration rate)
+EPS_DECAY = 0.999995       # Epsilon decay rate (controls exploration reduction)
+
+ARCHITETTURA RETE: dim_hidden=128
+nn.Linear(n_state_vars, dim_hidden),
+nn.ReLU(),
+nn.Linear(dim_hidden, dim_hidden),
+nn.ReLU(),
+nn.Linear(dim_hidden, dim_hidden),
+nn.ReLU(),
+nn.Linear(dim_hidden, n_actions),
+
+NO REWARD SHAPING
+
+MEDIA DEI TEST SU 500 MATCH: 42.27
+
+###########################################################################################################################################
+
+BATCH_SIZE = 128           # Number of experiences sampled per learning step (32, 64, 128)
+LR = 5e-4                  # Learning rate for optimizer (1e-3, 1e-4)
+EPISODES = 500000          # Maximum number of episodes to train (~1 or 2 minute for 100 episodes)
+TARGET_SCORE = 70          # Early stop if average score reaches this value (punteggio che dovrebbe fare la navetta quando atterra)
+GAMMA = 0.99               # Discount factor for future rewards
+MEMORY_SIZE = 1000000      # Maximum capacity of replay memory (multiplo di mille)
+LEARN_STEP = 5             # Frequency (in steps) of learning updates (5, 10)
+TAU = 1e-3                 # Soft update rate for the target network (1e-3)
+SAVE_CHKPT = True          # Option to save trained model checkpoint
+
+# Exploration parameters
+MAX_STEPS = 30             # Maximum steps per episode
+EPS_START = 1.0            # Initial epsilon for exploration (100% exploration at start)
+EPS_END = 0.01             # Minimum epsilon (final exploration rate)
+EPS_DECAY = 0.99999        # Epsilon decay rate (controls exploration reduction)
+
+ARCHITETTURA RETE: dim_hidden=128
+nn.Linear(n_state_vars, dim_hidden),
+nn.ReLU(),
+nn.Linear(dim_hidden, dim_hidden),
+nn.ReLU(),
+nn.Linear(dim_hidden, dim_hidden),
+nn.ReLU(),
+nn.Linear(dim_hidden, n_actions),
+
+nuovo sistema di reward shaping con bonus dinamico (weight=0.25, bonus_full_house=1.0, bonus_straight_with_seven=1.0, full_bonus=2.0)
+
+MEDIA DEI TEST SU 500 MATCH: 49.83
+
+###########################################################################################################################################
+
+BATCH_SIZE = 64            # Number of experiences sampled per learning step (32, 64, 128)
+LR = 5e-4                  # Learning rate for optimizer (1e-3, 1e-4)
+EPISODES = 500000          # Maximum number of episodes to train (~1 or 2 minute for 100 episodes)
+TARGET_SCORE = 70          # Early stop if average score reaches this value (punteggio che dovrebbe fare la navetta quando atterra)
+GAMMA = 0.99               # Discount factor for future rewards
+MEMORY_SIZE = int(1e5)     # Maximum capacity of replay memory (multiplo di mille)
+LEARN_STEP = 5             # Frequency (in steps) of learning updates (5, 10)
+TAU = 1e-3                 # Soft update rate for the target network (1e-3)
+SAVE_CHKPT = True          # Option to save trained model checkpoint
+
+# Exploration parameters
+MAX_STEPS = 30             # Maximum steps per episode
+EPS_START = 1.0            # Initial epsilon for exploration (100% exploration at start)
+EPS_END = 0.05             # Minimum epsilon (final exploration rate)
+EPS_DECAY = 0.999985        # Epsilon decay rate (controls exploration reduction)
+
+ARCHITETTURA RETE: dim_hidden=128
+nn.Linear(n_state_vars, dim_hidden),
+nn.ReLU(),
+nn.Linear(dim_hidden, dim_hidden),
+nn.ReLU(),
+nn.Linear(dim_hidden, dim_hidden),
+nn.ReLU(),
+nn.Linear(dim_hidden, n_actions),
+
+nuovo sistema di reward shaping con bonus dinamico (weight=0.25, bonus_full_house=1.0, bonus_straight_with_seven=1.0, full_bonus=2.0)
+
+MEDIA DEI TEST SU 500 MATCH: ?????
